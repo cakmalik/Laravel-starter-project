@@ -12,10 +12,21 @@ export default {
         "./resources/views/**/*.blade.php",
     ],
 
+    darkMode: "class",
+
     theme: {
         extend: {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+            },
+        },
+        container: {
+            padding: {
+                DEFAULT: "20px",
+                sm: "2rem",
+                lg: "4rem",
+                xl: "5rem",
+                "2xl": "6rem",
             },
         },
     },

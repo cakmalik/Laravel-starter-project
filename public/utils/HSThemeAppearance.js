@@ -40,9 +40,7 @@ const HSThemeAppearance = {
 
         if (dispatchEvent) {
             window.dispatchEvent(
-                new CustomEvent("on-hs-appearance-change", {
-                    detail: theme,
-                })
+                new CustomEvent("on-hs-appearance-change", { detail: theme })
             );
         }
     },

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="light">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="hs-auto-mode-active">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Betech.id') }} - {{ $title }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -25,8 +25,10 @@
     @include('layouts.sidebar')
 
     <!-- Content -->
-    <div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:pl-72">
+    <div class="w-full pt-5 px-4 sm:px-6 md:px-8 lg:pl-72">
         <!-- Page Heading -->
+        <h3 class="text-xl mb-5">{{ $title }}</h3>
+
         {{ $slot }}
         <!-- End Page Heading -->
     </div>
