@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Livewire\Welcome::class);
+Route::get('/', \App\Livewire\Welcome::class)->name('home');
+
+Route::get('/about', \App\Livewire\About::class)->name('about');
+
+Route::get('/user/{user}', \App\Livewire\User\Show::class)->name('user.show');
 
 Route::middleware([
     'auth:sanctum',
