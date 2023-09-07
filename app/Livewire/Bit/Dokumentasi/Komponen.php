@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class Komponen extends Component
 {
+    public $title = '';
     public function render()
     {
         return view('livewire.bit.dokumentasi.komponen');

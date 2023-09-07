@@ -13,7 +13,6 @@ export default {
     ],
 
     darkMode: "class",
-
     theme: {
         extend: {
             fontFamily: {
@@ -31,5 +30,10 @@ export default {
         },
     },
 
-    plugins: [forms, typography, require("preline/plugin")],
+    plugins: [
+        forms,
+        typography,
+        require("@tailwindcss/forms"),
+        require("preline/plugin"),
+    ],
 };
