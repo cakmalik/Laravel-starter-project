@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', \App\Livewire\Welcome::class)->name('home');
+Route::get('/about', \App\Livewire\About::class)->name('about');
+Route::get('/user/{user}', \App\Livewire\User\Show::class)->name('user.show');
 
 
 Route::middleware([
@@ -21,6 +23,4 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/about', \App\Livewire\About::class)->name('about');
-    Route::get('/user/{user}', \App\Livewire\User\Show::class)->name('user.show');
 });

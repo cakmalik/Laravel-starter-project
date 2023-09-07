@@ -39,7 +39,7 @@
 
                   {{-- NOTE:Toggle-mode --}}
                   <a class="hs-dark-mode-active:hidden block hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
-                      href="#!" data-hs-theme-click-value="dark">
+                      href="/?#!" data-hs-theme-click-value="dark">
                       <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                           fill="currentColor" viewBox="0 0 16 16">
                           <path
@@ -47,7 +47,7 @@
                       </svg>
                   </a>
                   <a class="hs-dark-mode-active:block hidden hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
-                      href="#!" data-hs-theme-click-value="light">
+                      href="/?#!" data-hs-theme-click-value="light">
                       <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                           fill="currentColor" viewBox="0 0 16 16">
                           <path
