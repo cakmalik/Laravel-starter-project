@@ -23,6 +23,8 @@ Route::get('/about', About::class)->name('about');
 Route::get('/bit', \App\Livewire\Bit\Index::class)->name('bit');
 Route::get('/bit/dokumentasi/komponen', Komponen::class)->name('bit.dokumentasi.komponen');
 
+Route::get('/users', \App\Livewire\User\Index::class)->name('users');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
