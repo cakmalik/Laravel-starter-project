@@ -28,3 +28,15 @@ Breadcrumbs::for('post', function ($trail, $post) {
     $trail->parent('category', $post->category);
     $trail->push($post->title, route('post', $post->id));
 });
+
+
+// Bit > Dokumentasi > Komponen
+Breadcrumbs::for('bit', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Bit', route('bit'));
+});
+
+Breadcrumbs::for('bit.dokumentasi.komponen', function ($trail) {
+    $trail->parent('bit');
+    $trail->push('Bit > Dokumentasi > Komponen', route('bit.dokumentasi.komponen'));
+});

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Betech.id') }} - {{ $title }}</title>
+    <title>{{ config('app.name', 'Betech.id') }} - {{ $title ?? '' }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -25,9 +25,9 @@
     @include('layouts.sidebar')
 
     <!-- Content -->
-    <div class="w-full pt-5 px-4 sm:px-6 md:px-8 lg:pl-72">
+    <div class="w-full pt-5 px-4 sm:px-6 md:px-8 lg:pl-72  text-slate-700 dark:text-gray-400">
         <!-- Page Heading -->
-        <h3 class="text-xl mb-5">{{ $title }}</h3>
+        <h3 class="text-xl mb-5 text-slate-900 dark:text-gray-300 font-semibold">{{ $title ?? '' }}</h3>
 
         {{ $slot }}
         <!-- End Page Heading -->
