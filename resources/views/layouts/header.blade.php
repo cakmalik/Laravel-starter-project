@@ -42,30 +42,10 @@
                       </div>
                   @endif --}}
 
-                  @php
-                      if (Session::has('locale')) {
-                          $locale = Session::get('locale', Config::get('app.locale'));
-                      } else {
-                          $locale = Config::get('app.locale');
-                      }
-                      
-                      //set new locale
-                      if ($locale == 'en') {
-                          $new_locale = 'id';
-                      } else {
-                          $new_locale = 'en';
-                      }
-                      
-                  @endphp
-
-                  <a class="uppercase dark:text-gray-400 p-0.5 px-1.5 rounded-lg border border-gray-500"
-                      href="/lang/{{ $new_locale }}">
-                      {{ $locale }}
-                  </a>
 
                   {{-- NOTE:Toggle-mode --}}
                   <a class="hs-dark-mode-active:hidden block hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
-                      href="/?#!" data-hs-theme-click-value="dark">
+                      href="/dashboard?#!" data-hs-theme-click-value="dark">
                       <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                           fill="currentColor" viewBox="0 0 16 16">
                           <path
@@ -73,7 +53,7 @@
                       </svg>
                   </a>
                   <a class="hs-dark-mode-active:block hidden hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
-                      href="/?#!" data-hs-theme-click-value="light">
+                      href="/dashboard?#!" data-hs-theme-click-value="light">
                       <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                           fill="currentColor" viewBox="0 0 16 16">
                           <path
@@ -105,6 +85,26 @@
                           <path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                       </svg>
                   </button> --}}
+                  @php
+                      if (Session::has('locale')) {
+                          $locale = Session::get('locale', Config::get('app.locale'));
+                      } else {
+                          $locale = Config::get('app.locale');
+                      }
+                      
+                      //set new locale
+                      if ($locale == 'en') {
+                          $new_locale = 'id';
+                      } else {
+                          $new_locale = 'en';
+                      }
+                      
+                  @endphp
+
+                  <a class="hidden sm:block uppercase text-gray-400 dark:text-gray-400 p-0.5 px-1.5 rounded-lg border border-gray-400 dark:border-gray-500 me-2 hs-dark-mode"
+                      href="/lang/{{ $new_locale }}">
+                      {{ $locale }}
+                  </a>
 
                   <div class="hs-dropdown relative inline-flex [--placement:bottom-right]">
                       <button id="hs-dropdown-with-header" type="button"

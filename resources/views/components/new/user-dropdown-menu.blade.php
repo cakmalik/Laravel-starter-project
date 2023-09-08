@@ -42,7 +42,7 @@
                 href="{{ route('logout') }}" @click.prevent="$root.submit();">
                 <i class="ph ph-sign-out"></i>
                 @csrf
-                {{ __('app.sign-out') }}
+                {{ __('sign-out') }}
             </a>
         </form>
     </div>
