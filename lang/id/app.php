@@ -9,4 +9,6 @@ return [
     'home' => 'beranda',
     'search' => 'cari',
     'dashboard' => 'dasboard',
+    'documentation' => 'dokumentasi',
+    'signed in as' => 'masuk sebagai',
 ];

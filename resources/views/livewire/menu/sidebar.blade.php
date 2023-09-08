@@ -2,7 +2,7 @@
     {{-- The Master doesn't talk, he acts. --}}
     <ul class="space-y-1.5">
         {{-- jomblo active --}}
-        <x-bit.menu-item href="{{ route('home') }}" icon="house-simple" :title="__('app.dashboard')" :active="request()->routeIs('home')" />
+        <x-bit.menu-item href="{{ route('dashboard') }}" icon="house-simple" :title="__('app.dashboard')" :active="request()->routeIs('dashboard')" />
         <x-bit.menu-item href="{{ route('about') }}" icon="address-book" :title="__('app.about')" :active="request()->routeIs('about')" />
         <x-bit.menu-item type="sub" icon="users" :title="__('app.users')" :active="request()->routeIs('users')" />
         <x-bit.menu-item type="sub" icon="nut" :title="__('app.settings')" :active="request()->routeIs('users')" :submenu="[
@@ -39,6 +39,14 @@
                 'title' => 'Password',
                 'href' => route('about'),
                 'active' => request()->routeIs('about'),
+                'child' => [],
+            ],
+        ]" />
+        <x-bit.menu-item type="sub" icon="nut" :title="__('app.documentation')" :active="request()->routeIs('bit.doc.component')" :submenu="[
+            [
+                'title' => 'Contoh Komponen',
+                'href' => route('bit.doc.component'),
+                'active' => request()->routeIs('bit.doc.component'),
                 'child' => [],
             ],
         ]" />

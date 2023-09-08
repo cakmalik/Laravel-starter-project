@@ -1,4 +1,8 @@
 <?php
+//dashboard
+Breadcrumbs::for('dashboard', function ($trail) {
+    $trail->push('Dashboard', route('dashboard'));
+});
 
 // Home
 Breadcrumbs::for('home', function ($trail) {
@@ -36,9 +40,9 @@ Breadcrumbs::for('bit', function ($trail) {
     $trail->push('Bit', route('bit'));
 });
 
-Breadcrumbs::for('bit.dokumentasi.komponen', function ($trail) {
+Breadcrumbs::for('bit.doc.component', function ($trail) {
     $trail->parent('bit');
-    $trail->push('Bit > Dokumentasi > Komponen', route('bit.dokumentasi.komponen'));
+    $trail->push('Bit > Dokumentasi > Komponen', route('bit.doc.component'));
 });
 
 //Not Found
