@@ -7,7 +7,6 @@ use Livewire\Attributes\Layout;
 
 class NotFound extends Component
 {
-    #[Layout('layouts.app')]
     public function render()
     {
         return view('livewire.error.not-found');
