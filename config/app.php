@@ -126,6 +126,14 @@ return [
     |
     */
 
+
+    'available_locales' => [
+        'English' => 'en',
+        'Indonesia' => 'id',
+    ],
+
+
+
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',

@@ -1,0 +1,22 @@
+{
+    "sign-in":"sign-in",
+    "sign-up":"sign-up",
+    "sign-out":"sign-out",
+    "logout":"logout",
+    "login":"login",
+    "register":"register",
+    "remember me":"remember me",
+    "forgot password":"forgot password",
+    "reset password":"reset password",
+    "settings":"settings",
+    "users":"users",
+    "roles":"roles",
+    "about":"about",
+    "home":"home",
+    "search":"search",
+    "dashboard":"dashboard",
+    "documentation":"documentation",
+    "Signed in as":"Signed in as",
+    "profile":"profile",
+    "name":"name"
+}
