@@ -40,3 +40,8 @@ Breadcrumbs::for('bit.dokumentasi.komponen', function ($trail) {
     $trail->parent('bit');
     $trail->push('Bit > Dokumentasi > Komponen', route('bit.dokumentasi.komponen'));
 });
+
+//Not Found
+Breadcrumbs::for('not-found', function ($trail) {
+    $trail->push('Not Found', route('not-found'));
+});
