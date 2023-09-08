@@ -76,7 +76,6 @@
             </svg>
         </a>
 
-        {{-- jomblo sadis --}}
         <div id="users-accordion-child"
             class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden">
             <ul class="hs-accordion-group pl-3 pt-2" data-hs-accordion-always-open>

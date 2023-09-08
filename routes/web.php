@@ -17,6 +17,12 @@ use App\Http\Livewire\Bit\Index;
 |
 */
 
+Route::fallback(function () {
+    return redirect()->route('not-found');
+});
+
+Route::get('/not-found', \App\Livewire\Error\NotFound::class)->name('not-found');
+
 Route::get('/', Welcome::class)->name('home');
 Route::get('/about', About::class)->name('about');
 
