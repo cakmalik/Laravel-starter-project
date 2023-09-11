@@ -16,7 +16,7 @@
 
          <!-- Breadcrumb -->
          {{-- TODO:nanti aja ini kalo sempat. --}}
-         {{ Breadcrumbs::render() }}
+         {{-- {{ Breadcrumbs::render() }} --}}
          <!-- End Breadcrumb -->
      </div>
  </div>

@@ -1,5 +1,8 @@
 <?php
 //dashboard
+
+use Sentry\Breadcrumb;
+
 Breadcrumbs::for('dashboard', function ($trail) {
     $trail->push('Dashboard', route('dashboard'));
 });
@@ -48,4 +51,10 @@ Breadcrumbs::for('bit.doc.component', function ($trail) {
 //Not Found
 Breadcrumbs::for('not-found', function ($trail) {
     $trail->push('Not Found', route('not-found'));
+});
+
+// User
+Breadcrumbs::for('user.table', function ($trail) {
+    $trail->parent('home');
+    $trail->push('User', route('user.table'));
 });

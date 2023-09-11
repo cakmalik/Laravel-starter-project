@@ -4,7 +4,8 @@
         {{-- jomblo active --}}
         <x-bit.menu-item href="{{ route('dashboard') }}" icon="house-simple" :title="__('dashboard')" :active="request()->routeIs('dashboard')" />
         <x-bit.menu-item href="{{ route('about') }}" icon="address-book" :title="__('about')" :active="request()->routeIs('about')" />
-        <x-bit.menu-item type="sub" icon="users" :title="__('users')" :active="request()->routeIs('users')" />
+        <x-bit.menu-item type="sub" icon="users" :title="__('users')" :active="request()->routeIs('users')"
+            href="{{ route('user.table') }}" />
         <x-bit.menu-item type="sub" icon="nut" :title="__('settings')" :active="request()->routeIs('users')" :submenu="[
             [
                 'title' => 'Profile',

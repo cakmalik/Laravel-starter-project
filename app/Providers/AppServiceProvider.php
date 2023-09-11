@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Spatie\Flash\Flash;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +12,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+
+        Flash::levels([
+            'success' => 'alert-success',
+            'warning' => 'alert-warning',
+            'error' => 'alert-error',
+        ]);
     }
 
     /**

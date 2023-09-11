@@ -50,5 +50,5 @@ Route::middleware([
     Route::get('/dashboard', Welcome::class)->name('dashboard');
     Route::get('/about', About::class)->name('about');
     Route::get('/bit', \App\Livewire\Bit\Index::class)->name('bit');
-    Route::get('/users', \App\Livewire\User\Index::class)->name('users');
+    Route::get('/users', \App\Livewire\User\UserTable::class)->name('user.table');
 });
