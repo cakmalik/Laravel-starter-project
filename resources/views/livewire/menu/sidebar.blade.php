@@ -43,9 +43,9 @@
                 'child' => [],
             ],
         ]" />
-        <x-bit.menu-item type="sub" icon="nut" :title="__('documentation')" :active="request()->routeIs('bit.doc.component')" :submenu="[
+        <x-bit.menu-item type="sub" icon="book-open-text" :title="__('documentation')" :active="request()->routeIs('bit.doc.component')" :submenu="[
             [
-                'title' => 'Contoh Komponen',
+                'title' => 'Example',
                 'href' => route('bit.doc.component'),
                 'active' => request()->routeIs('bit.doc.component'),
                 'child' => [],

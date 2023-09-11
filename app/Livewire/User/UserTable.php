@@ -2,10 +2,12 @@
 
 namespace App\Livewire\User;
 
+use LDAP\Result;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\Title;
+use Spatie\Permission\Models\Role;
 
 class UserTable extends Component
 {
@@ -32,9 +34,11 @@ class UserTable extends Component
     #[Title('users')]
     public function render()
     {
+        $roles = Role::all();
         return view(
             'livewire.user.user-table',
             [
+                'roles' => $roles,
                 'users' => User::with('roles')->search($this->search)->simplePaginate($this->perPage),
             ]
         );

@@ -28,7 +28,11 @@
     <!-- Content -->
     <div class="w-full pt-5 px-5 sm:px-7 md:px-9 lg:pl-72  text-slate-700 dark:text-gray-400">
         <!-- Page Heading -->
-        <h3 class="text-xl mb-5 text-slate-900 dark:text-gray-300 font-semibold capitalize">{{ __($title) ?? '' }}</h3>
+        @isset($title)
+            <h3 class="hidden sm:block text-xl mb-3 text-slate-900 dark:text-gray-300 font-semibold capitalize">
+                {{ __($title) ?? '' }}
+            </h3>
+        @endisset
 
         {{ $slot }}
         <!-- End Page Heading -->
