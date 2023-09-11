@@ -18,5 +18,10 @@
     "documentation": "dokumentasi",
     "Signed in as": "Masuk sebagai",
     "profile": "profil",
-    "Not Found": "Tidak Ditemukan"
+    "Not Found": "Tidak Ditemukan",
+    "Cannot delete your self": "Tidak dapat menghapus diri sendiri",
+    "Success, account deleted": "Berhasil, akun dihapus",
+    "Are you sure you want to delete this user?": "Apakah Anda yakin ingin menghapus pengguna ini?",
+    "Are you sure you want to delete this role?": "Apakah Anda yakin ingin menghapus peran ini?",
+    "Are you sure you want to delete this permission?": "Apakah Anda yakin ingin menghapus izin ini?"
 }

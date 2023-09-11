@@ -12,15 +12,20 @@ class UserTable extends Component
     public $perPage = 5;
     public $search = '';
 
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function delete($id)
     {
         if ($id == auth()->user()->id) {
-            flash('message', 'You can\'t delete yourself');
+            flash(__('Cannot delete your self'), 'error');
             return;
         }
         $user = User::find($id);
         $user->delete();
-        flash('Hurray', 'success');
+        flash(__('Success, account deleted'), 'success');
     }
 
     public function render()
