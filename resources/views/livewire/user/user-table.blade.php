@@ -4,9 +4,9 @@
             @if (flash()->message)
                 <x-bit.alert :level="flash()->level" :message="flash()->message" />
             @endif
-            <!-- Start coding here -->
-            <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-                <div class="flex items-center justify-between d p-4">
+
+            <x-bit.datatable.advance>
+                <x-slot:header>
                     <div class="flex">
                         <div class="relative w-full">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -24,8 +24,10 @@
                     </div>
                     <div class="flex ">
                         <div class="flex items-center gap-2">
-                            <label class="text-sm font-medium text-gray-900 capitalize">{{ __('Role') }} :</label>
-                            <select
+                            <label
+                                class="text-sm font-medium text-gray-900 dark:text-slate-400 capitalize">{{ __('Role') }}
+                                :</label>
+                            <select wire:model.live="role"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-1 w-28">
                                 <option value="">All</option>
                                 @foreach ($roles as $role)
@@ -34,89 +36,79 @@
                             </select>
                         </div>
                     </div>
-                </div>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                            <tr>
-                                <th scope="col" class="px-4 py-3">name</th>
-                                <th scope="col" class="px-4 py-3">email</th>
-                                <th scope="col" class="px-4 py-3">Role</th>
-                                <th scope="col" class="px-4 py-3">Joined</th>
-                                <th scope="col" class="px-4 py-3">
-                                    <span class="sr-only">Actions</span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse ($users as $i)
-                                <tr wire:key="{{ $i->id }}" class="border-b dark:border-gray-700">
-                                    <th scope="row"
-                                        class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        {{ $i->name }}</th>
-                                    <td class="px-4 py-3">{{ $i->username }}</td>
-                                    <td class="px-4 py-3 text-green-500">
-                                        @php
-                                            $roleNames = $i->getRoleNames();
-                                            $roleCount = count($roleNames);
-                                        @endphp
+                </x-slot>
+                <x-slot:thead>
+                    <tr>
+                        <th scope="col" class="px-4 py-3">name</th>
+                        <th scope="col" class="px-4 py-3">email</th>
+                        <th scope="col" class="px-4 py-3">Role</th>
+                        <th scope="col" class="px-4 py-3">Joined</th>
+                        <th scope="col" class="px-4 py-3">
+                            <span class="sr-only">Actions</span>
+                        </th>
+                    </tr>
+                </x-slot>
 
-                                        @foreach ($roleNames as $key => $rn)
-                                            {{ $rn }}
-                                            @if ($key < $roleCount - 1)
-                                                ,
-                                            @endif
-                                        @endforeach
-                                    </td>
-                                    <td class="px-4 py-3">{{ $i->created_at }}</td>
-                                    <td>
-                                        <x-bit.button.danger wire:click="delete({{ $i->id }})"
-                                            class="disabled:opacity-75" wire:loading.attr="disabled">
-                                            <i class="ph ph-circle-notch animate-spin me-1" wire:loading
-                                                wire:target="delete({{ $i->id }})"></i>
-                                            {{ __('Delete') }}
-                                        </x-bit.button.danger>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr class="border-b dark:border-gray-700">
-                                    <td colspan="5"
-                                        class="font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <div class="flex flex-col justify-center items-center">
-                                            <lottie-player
-                                                src="https://lottie.host/e3ddeb19-0925-4ae8-879b-8a747239f0c5/Q0qAwisxmI.json"
-                                                background="transparent" speed="1"
-                                                style="width: 200px; height: 200px" loop autoplay direction="1"
-                                                mode="normal"></lottie-player>
-                                            <span class="text-base">{{ __('Not found') }}</span>
-                                        </div>
-                                    </td>
-                                </tr>
+                @forelse ($users as $i)
+                    <tr wire:key="{{ $i->id }}" class="border-b dark:border-gray-700">
+                        <th scope="row"
+                            class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ $i->name }}</th>
+                        <td class="px-4 py-3">{{ $i->username }}</td>
+                        <td class="px-4 py-3 text-green-500">
+                            @php
+                                $roleNames = $i->getRoleNames();
+                                $roleCount = count($roleNames);
+                            @endphp
 
-                            @endforelse
+                            @foreach ($roleNames as $key => $rn)
+                                {{ $rn }}
+                                @if ($key < $roleCount - 1)
+                                    ,
+                                @endif
+                            @endforeach
+                        </td>
+                        <td class="px-4 py-3">{{ $i->created_at }}</td>
+                        <td>
+                            <x-bit.button.simple level="danger" wire:click="delete({{ $i->id }})"
+                                class="disabled:opacity-75" wire:loading.attr="disabled">
+                                <i class="ph ph-circle-notch animate-spin me-1" wire:loading
+                                    wire:target="delete({{ $i->id }})"></i>
+                                <span wire:target="delete({{ $i->id }})" wire:loading.class="hidden">
+                                    {{ __('Delete') }}</span>
+                            </x-bit.button.simple>
+                        </td>
+                    </tr>
+                @empty
+                    <tr class="border-b dark:border-gray-700">
+                        <td colspan="5" class="font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <div class="flex flex-col justify-center items-center">
+                                <lottie-player
+                                    src="https://lottie.host/e3ddeb19-0925-4ae8-879b-8a747239f0c5/Q0qAwisxmI.json"
+                                    background="transparent" speed="1" style="width: 200px; height: 200px" loop
+                                    autoplay direction="1" mode="normal"></lottie-player>
+                                <span class="text-base">{{ __('Not found') }}</span>
+                            </div>
+                        </td>
+                    </tr>
 
-                        </tbody>
-                    </table>
-                </div>
+                @endforelse
 
-                <div class="py-4 px-3">
-                    <div class="flex justify-between">
-                        <div class="flex items-center mb-3 gap-1">
-                            <label class="text-sm font-medium text-gray-900">Per Page</label>
-                            <select wire:model.live="perPage"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-1 w-14">
-                                <option value="5">5</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </select>
-                        </div>
-                        {{ $users->links() }}
+                <x-slot:footer>
+                    <div class="flex items-center mb-3 gap-1">
+                        <label class="text-sm font-medium text-gray-900 dark:text-slate-400">Per Page</label>
+                        <select wire:model.live="perPage"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-1 w-14">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
                     </div>
-                </div>
-            </div>
+                    {{ $users->links() }}
+                </x-slot>
+            </x-bit.datatable.advance>
         </div>
     </section>
-
 </div>

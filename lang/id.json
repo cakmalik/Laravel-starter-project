@@ -28,5 +28,7 @@
     "Are you sure you want to delete this permission?": "Apakah Anda yakin ingin menghapus izin ini?",
     "Example": "Contoh",
     "Not found": "Tidak ditemukan",
-    "Delete": "Hapus"
+    "Delete": "Hapus",
+    "Permission": "kelola Izin",
+    "Component": "Komponen"
 }

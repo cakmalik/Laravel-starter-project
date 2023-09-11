@@ -6,7 +6,7 @@
         <x-bit.menu-item href="{{ route('about') }}" icon="address-book" :title="__('about')" :active="request()->routeIs('about')" />
         <x-bit.menu-item type="sub" icon="users" :title="__('users')" :active="request()->routeIs('users')"
             href="{{ route('user.table') }}" />
-        <x-bit.menu-item type="sub" icon="nut" :title="__('settings')" :active="request()->routeIs('users')" :submenu="[
+        {{-- <x-bit.menu-item type="sub" icon="nut" :title="__('Permission')" :active="request()->routeIs('users')" :submenu="[
             [
                 'title' => 'Profile',
                 'href' => route('about'),
@@ -42,10 +42,24 @@
                 'active' => request()->routeIs('about'),
                 'child' => [],
             ],
-        ]" />
-        <x-bit.menu-item type="sub" icon="book-open-text" :title="__('documentation')" :active="request()->routeIs('bit.doc.component')" :submenu="[
+        ]" /> --}}
+        {{-- <x-bit.menu-item type="sub" icon="nut" :title="__('Permission')" :active="request()->routeIs('users')" :submenu="[
             [
-                'title' => 'Example',
+                'title' => 'Role',
+                'href' => route('about'),
+                'active' => request()->routeIs('role'),
+                'child' => [],
+            ],
+            [
+                'title' => 'Permission',
+                'href' => route('about'),
+                'active' => request()->routeIs('permission'),
+                'child' => [],
+            ],
+        ]" /> --}}
+        <x-bit.menu-item type="sub" icon="notebook" :title="__('documentation')" :active="request()->routeIs('bit.doc.component')" :submenu="[
+            [
+                'title' => 'Modal',
                 'href' => route('bit.doc.component'),
                 'active' => request()->routeIs('bit.doc.component'),
                 'child' => [],

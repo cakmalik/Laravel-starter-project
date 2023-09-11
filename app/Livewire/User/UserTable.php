@@ -14,6 +14,7 @@ class UserTable extends Component
     use WithPagination;
     public $perPage = 5;
     public $search = '';
+    public $role = '';
 
     public function updatingSearch()
     {
@@ -39,7 +40,14 @@ class UserTable extends Component
             'livewire.user.user-table',
             [
                 'roles' => $roles,
-                'users' => User::with('roles')->search($this->search)->simplePaginate($this->perPage),
+                'users' => User::with('roles')
+                    ->when($this->role, function ($query) {
+                        $query->whereHas('roles', function ($query) {
+                            $query->where('name', $this->role);
+                        });
+                    })
+                    ->search($this->search)
+                    ->simplePaginate($this->perPage),
             ]
         );
     }

@@ -13,7 +13,7 @@
          </button>
 
          @isset($title)
-             <h3 class="font-semibold capitalize">{{ __($title) ?? '' }}</h3>
+             <h3 class="font-semibold capitalize ms-3 dark:text-white">{{ __($title) ?? '' }}</h3>
          @endisset
          <!-- End Navigation Toggle -->
 
