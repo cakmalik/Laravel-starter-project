@@ -26,9 +26,9 @@
     @include('layouts.sidebar')
 
     <!-- Content -->
-    <div class="w-full pt-5 px-4 sm:px-6 md:px-8 lg:pl-72  text-slate-700 dark:text-gray-400">
+    <div class="w-full pt-5 px-5 sm:px-7 md:px-9 lg:pl-72  text-slate-700 dark:text-gray-400">
         <!-- Page Heading -->
-        <h3 class="text-xl mb-5 text-slate-900 dark:text-gray-300 font-semibold">{{ $title ?? '' }}</h3>
+        <h3 class="text-xl mb-5 text-slate-900 dark:text-gray-300 font-semibold capitalize">{{ __($title) ?? '' }}</h3>
 
         {{ $slot }}
         <!-- End Page Heading -->

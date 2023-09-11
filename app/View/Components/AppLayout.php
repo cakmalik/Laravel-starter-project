@@ -12,9 +12,6 @@ class AppLayout extends Component
      */
     public function render(): View
     {
-        if ($locale = session('locale')) {
-            app()->setLocale($locale);
-        }
         return view('layouts.app');
     }
 }

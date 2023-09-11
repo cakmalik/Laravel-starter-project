@@ -5,6 +5,7 @@ namespace App\Livewire\User;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\Attributes\Title;
 
 class UserTable extends Component
 {
@@ -28,6 +29,7 @@ class UserTable extends Component
         flash(__('Success, account deleted'), 'success');
     }
 
+    #[Title('users')]
     public function render()
     {
         return view(

@@ -1,7 +1,6 @@
 <div>
     <section class="mt-10">
         <div class="mx-auto max-w-screen-xl px-1">
-
             @if (flash()->message)
                 <x-bit.alert :level="flash()->level" :message="flash()->message" />
             @endif
