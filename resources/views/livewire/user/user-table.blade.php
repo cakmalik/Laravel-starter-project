@@ -1,6 +1,10 @@
 <div>
     <section class="mt-10">
         <div class="mx-auto max-w-screen-xl px-1">
+
+            @if (flash()->message)
+                <x-bit.alert :level="flash()->level" :message="flash()->message" />
+            @endif
             <!-- Start coding here -->
             <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                 <div class="flex items-center justify-between d p-4">

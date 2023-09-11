@@ -20,7 +20,7 @@ class UserTable extends Component
         }
         $user = User::find($id);
         $user->delete();
-        flash('message', 'User deleted successfully');
+        flash('Hurray', 'success');
     }
 
     public function render()
