@@ -44,5 +44,8 @@ class UserSeeder extends Seeder
             'email' => 'admin@betech.id',
             'password' => Hash::make(123),
         ])->assignRole('admin');
+
+
+        \App\Models\User::factory(100)->create();
     }
 }
